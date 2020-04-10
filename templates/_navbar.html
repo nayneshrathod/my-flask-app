@@ -1,0 +1,73 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar"
+                    data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Main Project</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav">
+                <li class="{{ 'active' if active_page == 'Home' else '' }}"><a href="/">Home</a></li>
+                {% if session.login %}
+                <li class="{{ 'active' if active_page == 'my-blog' else '' }}"><a href="/my-blog/">My Blogs</a></li>
+                <li class="{{ 'active' if active_page == 'write-blog' else '' }}"><a href="/write-blog/">Write Blog</a>
+                    {% endif %}
+                <li class="{{ 'active' if active_page == 'About' else '' }}"><a href="/about/">About</a></li>
+                <li class="{{ 'active' if active_page == 'Contact' else '' }}"><a href="/contact/">Contact</a></li>
+                <!--                <li class="{{ 'active' if active_page == 'blogs' else '' }}"><a href="/blogs/1/">Blog</a></li>-->
+                <!--                <li class="{{ 'active' if active_page == 'edit_blog' else '' }}"><a href="/edit-blogs/1/">Edit Blog</a>-->
+                </li>
+            </ul>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if session.login %}
+                <li class="{{ 'active' if active_page == 'logout' else '' }}">
+                    <a href="/logout">Logout <b>{{session['firstname']}}</b></a>
+                </li>
+                {% else %}
+                <li class="{{ 'active' if active_page == 'login' else '' }}">
+                    <a href="/login">Login</a>
+                </li>
+                <li class="{{ 'active' if active_page == 'register' else '' }}">
+                    <a href="/register">Register</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+
+<nav class="navbar navbar-default">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">FLOG</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li><a href="/">Home</a></li>
+        {% if session.login %}
+        <li><a href="/write-blog">Write a new blog</a></li>
+        <li><a href="/my-blogs">View my blogs</a></li>
+        {% endif %}
+        <li><a href="/about">About</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        {% if session.login %}
+        <li>
+            <a href="/logout">Logout</a>
+        </li>
+        {% else %}
+        <li>
+            <a href="/login">Login</a>
+        </li>
+        <li>
+            <a href="/register">Register</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>

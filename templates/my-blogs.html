@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Blog
+{% endblock title %}
+
+{% set active_page = "my-blog" %}
+{% block sub_content %}
+
+
+{% if my_blogs %}
+<table class="table">
+
+    {% for blog in my_blogs %}
+    <tr>
+        <td>
+            <h3><a href="/blogs/{{ blog['blog_id'] }}"> {{ blog['title']}}</a></h3>
+
+        </td>
+        <td>
+            <h3><a class="btn btn-primary" href="/edit-blogs/{{ blog['blog_id'] }}"> Edit</a></h3>
+
+        </td>
+        <td>
+            <h3><a class="btn btn-danger" href="/delete-blogs/{{ blog['blog_id'] }}"> Delete</a></h3>
+
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% else%}
+<h2>NO Blogs Have Been Written Yet</h2>
+{% endif %}
+
+{% endblock  sub_content %}

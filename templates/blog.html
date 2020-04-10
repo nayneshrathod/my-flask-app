@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% set active_page = "blogs" %}
+
+{% block title %}
+Blog
+{% endblock title %}
+
+{% block sub_content %}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2 class="panel-title  text-center">{{blog['title']}} </h2>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-12">
+            <p> {{blog['body'] | safe}}</p>
+        </div>
+    </div>
+    <div class="panel-footer">
+        <p class="text-left">{{blog['author'] }}</p>
+    </div>
+</div>
+{% endblock sub_content %}

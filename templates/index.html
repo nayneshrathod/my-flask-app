@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% set active_page = "Home" %}
+{% block sub_content %}
+{% if blogs %}
+{% for blog in blogs %}
+<h3><a href="/blogs/{{ blog['blog_id'] }}"> {{ blog['title']}}</a></h3>
+<h5> {{ blog['author']}} </h5>
+<hr>
+{% endfor %}
+{% else%}
+<h2>NO Blogs Have Been Written Yet</h2>
+{% endif %}
+{% endblock sub_content  %}

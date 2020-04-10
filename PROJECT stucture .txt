@@ -1,0 +1,25 @@
+create a project folder
+
+pip install virtualenv
+python -m venv venv
+source venv/bin/activate
+
+and then install belove packages
+ 
+pip install Flask
+pip install Flask-Bootstrap
+pip install Flask-CKEditor
+pip install Flask-MySQLdb
+pip install mysqlclient
+pip install PyYAML
+pip install WTForms 
+
+
+and create a under project dir to two other folder
+1. is "templates"
+2. is "static"
+
+and one "app.py" file
+
+and  template folder under 
+create  new "Index.html" file  and Use the app.py route
